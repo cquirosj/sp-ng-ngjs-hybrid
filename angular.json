@@ -79,45 +79,9 @@
               "apps/pulse/src/**/*.html"
             ]
           }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/pulse"],
-          "options": {
-            "jestConfig": "apps/pulse/jest.config.js",
-            "passWithNoTests": true
-          }
         }
       },
       "tags": []
-    },
-    "pulse-e2e": {
-      "root": "apps/pulse-e2e",
-      "sourceRoot": "apps/pulse-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/pulse-e2e/cypress.json",
-            "devServerTarget": "pulse:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "pulse:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/pulse-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["pulse"]
     }
   }
 }
