@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "projects": {
+    "pulse": {
+      "projectType": "application",
+      "root": "apps/pulse",
+      "sourceRoot": "apps/pulse/src",
+      "prefix": "particular",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/pulse",
+            "index": "apps/pulse/src/index.html",
+            "main": "apps/pulse/src/main.ts",
+            "polyfills": "apps/pulse/src/polyfills.ts",
+            "tsConfig": "apps/pulse/tsconfig.app.json",
+            "assets": ["apps/pulse/src/favicon.ico", "apps/pulse/src/assets"],
+            "styles": ["apps/pulse/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/pulse/src/environments/environment.ts",
+                  "with": "apps/pulse/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "pulse:build:production"
+            },
+            "development": {
+              "browserTarget": "pulse:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pulse:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/pulse/src/**/*.ts",
+              "apps/pulse/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/pulse"],
+          "options": {
+            "jestConfig": "apps/pulse/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "pulse-e2e": {
+      "root": "apps/pulse-e2e",
+      "sourceRoot": "apps/pulse-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/pulse-e2e/cypress.json",
+            "devServerTarget": "pulse:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pulse:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/pulse-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["pulse"]
+    }
+  }
+}
