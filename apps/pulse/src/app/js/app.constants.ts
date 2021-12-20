@@ -6,15 +6,15 @@ export interface IDefaultConfig {
   showPendingRetry: boolean;
 }
 
-export function initDefaultConfig() {
-  (<any>window).defaultConfig = {
+
+(<any>window).defaultConfig = {
     default_route: '/dashboard',
     version: '1.2.0',
     service_control_url: 'http://christianqufe6a:49201/api/',
     monitoring_urls: ['http://christianqufe6a:49205/'],
     showPendingRetry: false,
-  } as IDefaultConfig;
-}
+} as IDefaultConfig;
+
 
 export function getDefaultConfig() {
     return (<any>window).defaultConfig as IDefaultConfig;

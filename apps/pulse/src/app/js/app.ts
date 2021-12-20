@@ -1,46 +1,42 @@
 import * as $ from 'jquery' 
 import {ILocationProvider, ILocationService, ILogService, IRootScopeService, module, injector, element, bootstrap} from 'angular';
 import { IDefaultConfig } from './app.constants';
-import { initDefaultConfig, getDefaultConfig } from './app.constants'
-import { initConnectionManager } from '../modules/configuration/connectionsManager';
-import { initConfigurationModule } from '../modules/configuration/js/configuration.module';
+import { getDefaultConfig } from './app.constants'
+import '../modules/configuration/connectionsManager';
+import '../modules/configuration/js/configuration.module';
 import { initAppRouteProvider } from './app.route';
 import 'ng-sanitize';
 
-initDefaultConfig();
-initConfigurationModule();
-initConnectionManager();
-
 export default module('sc', [
         'ngRoute',
-        //'ngAnimate',
-        //'ngSanitize', //$sce
-        //'ngClipboard',
-        //'ngStorage',
-        // 'ngCookies',
-        // 'ngHighlight',
-        // 'toaster',
-        // 'toastService',
-        // 'ui.bootstrap',
-        // 'services',
-        // 'ui.particular',
-        // 'ui.particular.reindexingstatus',
-        // 'directives.moment',
-        // 'eventLogItems',
-        // 'endpoints',
-        // 'monitored_endpoints',
-        // 'endpoint_details',
-        // 'wrappers',
-        // 'customChecks',
-        // 'configuration',
-        // 'dashboard',
-        // 'ui.select',
-        // 'prettyXml',
-        // 'licenseNotifierService',
-        // 'platformexpired',
-        // 'configuration.license',
-        // 'events.module',
-        // 'services.disconnectedEndpointMonitor',
+        'ngAnimate',
+        'ngSanitize', //$sce
+        'ngClipboard',
+        'ngStorage',
+        'ngCookies',
+        'ngHighlight',
+        'toaster',
+        'toastService',
+        'ui.bootstrap',
+        'services',
+        'ui.particular',
+        'ui.particular.reindexingstatus',
+        'directives.moment',
+        'eventLogItems',
+        'endpoints',
+        'monitored_endpoints',
+        'endpoint_details',
+        'wrappers',
+        'customChecks',
+        'configuration',
+        'dashboard',
+        'ui.select',
+        'prettyXml',
+        'licenseNotifierService',
+        'platformexpired',
+        'configuration.license',
+        'events.module',
+        'services.disconnectedEndpointMonitor',
     ]);
 
     module('sc')

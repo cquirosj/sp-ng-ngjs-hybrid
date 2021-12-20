@@ -100,10 +100,8 @@ class ConnectionsManager {
   }
 }
 
-export function initConnectionManager() {
-  (<any>window).connectionsManager = new ConnectionsManager();
+(<any>window).connectionsManager = new ConnectionsManager();
 
-  module('configuration').service('connectionsManager', function () {
-    return (<any>window).connectionsManager;
-  });
-}
+module('configuration').service('connectionsManager', function () {
+  return (<any>window).connectionsManager;
+});

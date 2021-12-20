@@ -1,9 +1,8 @@
 
-//import * as angular from 'angular';
-import {module} from 'angular';
+import * as angular from 'angular';
 import 'angular-route';
 
-export default module('testApp', ['ngRoute'])
+export default angular.module('testApp', ['ngRoute'])
 .config(['$routeProvider', function ($routeProvider:  angular.route.IRouteProvider) {
   $routeProvider.when('/Cart', { templateUrl: '/partials/Cart.html', controller: 'checkoutSimulatorCtrl' });
   $routeProvider.otherwise({ redirectTo: '/Cart' });
