@@ -1,174 +1,260 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="testApp">
-  <head>
-    <meta charset="utf-8" />
-    <title>Pulse</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
-    <div ng-view=""></div>
-    <script type="text/ng-template" id="/partials/Cart.html">
-      <div class="container">
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
 
-          <form ng-show="!signedOrder" class="" name="billingForm">
-              <fieldset>
-                  <legend>Billing</legend>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="storeName">Store name</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="storeName" placeholder="" ng-model="storeName">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="transactionType">Transaction Type</label>
-                      <div class="col-sm-9">
-                          <select class="form-control" ng-model="order.TransactionType">
-                              <option value=""></option>
-                              <option value="Authorization">Authorization</option>
-                              <option value="Sale">Sale</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="referenceNumber">Reference Number</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="referenceNumber" placeholder="ex. order number or sessionId" ng-model="order.ReferenceNumber">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="Forename">Name</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="Forename" placeholder="Name" ng-model="order.BillToForename">
-                      </div>
-                  </div>
+    <title>ServicePulse</title>
+    <page-title-from-route></page-title-from-route>
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="Surname">Surname</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="Surname" placeholder="Surname" ng-model="order.BillToSurname">
-                      </div>
-                  </div>
+    <meta charset="utf-8">
+    <meta name="description" content="An Operations Manager’s Best Friend">
+    <meta name="author" content="Particular Software">
+    <meta name="viewport" content="width=1440, initial-scale=1">
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="Email">e-Mail Address</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="Email" placeholder="e-Mail Address" ng-model="order.BillToEmail">
-                      </div>
-                  </div>
+    <link rel="shortcut icon" href="favicon.ico">
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="Phone">Phone</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="Phone" placeholder="Phone" ng-model="order.BillToPhone">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="AddresLine1">Addres line 1</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="AddresLine1" placeholder="Addres line 1" ng-model="order.BillToAddressLine1">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="AddresLine1">Addres line 2</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="AddresLine1" placeholder="Addres line 2" ng-model="order.BillToAddressLine2">
-                      </div>
-                  </div>
+    <!-- 3rd Party Library Styles -->
+    <!-- <link rel="stylesheet" href="modules/dist/vendor.css"> -->
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="City">City</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="City" placeholder="City" ng-model="order.BillToAddressCity">
-                      </div>
-                  </div>
+    <!-- Particular Styles -->
+    <!-- <link rel="stylesheet" href="css/particular.css"> -->
+    <!--[if lt IE 9 ]>
+        <script type="text/javascript">
+            window.location = 'NoIE.html';
+        </script>
+    <![endif]-->
+    <!--[if IE]>
+        <link rel="stylesheet" href="css/particular.ie.css">
+    <![endif]-->
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="State">State</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="State" placeholder="State" ng-model="order.BillToAddressState">
-                      </div>
-                  </div>
+</head>
+<body ng-controller="AppCtrl">
+    <noscript>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="alert col-sm-10 col-md-10 alert-warning">
+                    <h4>Warning!</h4>
+                    <p>
+                        You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </noscript>
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="Country">Country</label>
-                      <div class="col-sm-9">
-                          <select class="form-control" id="Country" ng-model="order.BillToAddressCountry">
-                              <option value=""></option>
-                              <option value="US">US</option>
-                              <option value="CA">CA</option>
-                              <option value="CR">CR</option>
-                          </select>
-                      </div>
-                  </div>
+    <ng-include src="'layout/navbar.html'"></ng-include>
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="zip">Zip</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="zip" placeholder="Zip" ng-model="order.BillToAddressPostalCode" ng-required="order.BillToAddressCountry=='US' || order.BillToAddressCountry=='CA'">
-                      </div>
-                  </div>
+    <div class="container-fluid">
+        <a id="pagetop"></a>
+        <div id="connectingToServiceControl" ng-if="loadingInitialData">
+            <div class="row">
+                <div class="sp-loader"></div>
+            </div>
+        </div>
+        <div id="view" ng-view=""></div>
+    </div>
 
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="amount">Amount</label>
-                      <div class="col-sm-9">
-                          <input type="number" step="any" class="form-control" id="amount" placeholder="Amount" ng-model="order.OrderTotal" required>
-                      </div>
-                  </div>
-              </fieldset>
+    <ng-include src="'layout/footer.html'"></ng-include>
 
-              <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-9">
-                      <button type="button" class="btn btn-default" ng-click="clear()">Clear</button>
-                      <button type="button" class="btn btn-default" ng-click="setDefaults()">Fill with defaults</button>
-                      <button type="submit" class="btn btn-default" ng-disabled="!billingForm.$valid" ng-click="pay()">Pay</button>
-                  </div>
-              </div>
-          </form>
+    <toaster-container toaster-options="{'position-class': 'toast-bottom-right'}">
+    </toaster-container>
+    <!-- Polyfills -->
+    <script type="text/javascript">
+        if (!String.prototype.startsWith) {
+            String.prototype.startsWith = function (searchString, position) {
+                position = position || 0;
+                return this.substr(position, searchString.length) === searchString;
+            };
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+        if (!Array.prototype.findIndex) {
+            Object.defineProperty(Array.prototype, 'findIndex', {
+                value: function (predicate) {
+                    if (this == null) {
+                        throw new TypeError('"this" is null or not defined');
+                    }
+                    var o = Object(this);
+                    var len = o.length >>> 0;
 
-          <form ng-show="signedOrder" id="paymentConfirmation" name="paymentConfirmation" action="https://testsecureacceptance.cybersource.com/silent/token/create" method="post">
+                    if (typeof predicate !== 'function') {
+                        throw new TypeError('predicate must be a function');
+                    }
 
-              <dynamic-content ng-model="signedOrder"></dynamic-content>
+                    var thisArg = arguments[1];
+                    var k = 0;
 
-              <fieldset>
-                  <legend>Payment confirmation</legend>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="cartType">Card Type</label>
-                      <div class="col-sm-9">
-                          <select class="form-control" id="card_type" name="card_type" ng-model="card.Type" required>
-                              <option value=""></option>
-                              <option value="001">VISA</option>
-                              <option value="002">MasterCard</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="card_number">Card number</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="card_number" placeholder="Card number" name="card_number" ng-model="card.Number" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="card_expiry_date">Expiration date</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="card_expiry_date" name="card_expiry_date" placeholder="Expiration date" ng-model="card.ExpDate" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label" for="card_cvn">CVN</label>
-                      <div class="col-sm-9">
-                          <input type="text" class="form-control" id="card_cvn" name="card_cvn" placeholder="card cvn" ng-model="card.Cvn" required>
-                      </div>
-                  </div>
+                    while (k < len) {
+                        var kValue = o[k];
+                        if (predicate.call(thisArg, kValue, k, o)) {
+                            return k;
+                        }
+                        k++;
+                    }
 
-              </fieldset>
-              <button type="button" class="btn btn-default" ng-click="signedOrder=''">Back</button>
-              <button type="button" class="btn btn-default" ng-click="setCardDefaults()">Fill with defaults</button>
-              <input type="submit" class="btn btn-default" id="submit" value="Confirm" ng-disabled="!paymentConfirmation.$valid" />
-          </form>
-      </div>
-  </script>
+                    return -1;
+                }
+            });
+        }
 
-  </body>
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+        if (!Array.prototype.fill) {
+            Object.defineProperty(Array.prototype, 'fill', {
+                value: function (value) {
+
+                    if (this == null) {
+                        throw new TypeError('this is null or not defined');
+                    }
+
+                    var O = Object(this);
+                    var len = O.length >>> 0;
+
+                    var start = arguments[1];
+                    var relativeStart = start >> 0;
+
+                    var k = relativeStart < 0 ?
+                        Math.max(len + relativeStart, 0) :
+                        Math.min(relativeStart, len);
+
+                    var end = arguments[2];
+                    var relativeEnd = end === undefined ?
+                        len : end >> 0;
+
+                    var final = relativeEnd < 0 ?
+                        Math.max(len + relativeEnd, 0) :
+                        Math.min(relativeEnd, len);
+
+                    while (k < final) {
+                        O[k] = value;
+                        k++;
+                    }
+
+                    return O;
+                }
+            });
+        }
+    </script>
+
+    <!-- <script src="js/app.constants.js?v=1621602441174"></script>
+
+    <script src="modules/dist/shell.dist.js?v=1621602441174"></script>
+    <script src="modules/dist/monitoring.dist.js?v=1621602441174"></script>
+    <script src="modules/dist/configuration.dist.js?v=1621602441174"></script>
+
+    <script src="lib/page-width-functions.js?v=1621602441174"></script> -->
+
+    <!-- App -->
+    <!-- <script src="js/app.js?v=1621602441174"></script>
+    <script src="js/app.route.js?v=1621602441174"></script>
+    <script src="js/app.controller.js?v=1621602441174"></script>
+    <script src="js/app.logging.js?v=1621602441174"></script>
+    <script src="js/app.http.js?v=1621602441174"></script>
+    <script src="js/app.bootstrap.js?v=1621602441174"></script> -->
+
+    <!-- Services -->
+    <!-- <script src="js/services/services.module.js?v=1588195944426"></script>
+    <script src="js/services/services.exception-handler.js?v=1588195944426"></script>
+    <script src="js/services/services.notifications.js?v=1588195944426"></script>
+    <script src="js/services/services.platform-update.js?v=1588195944426"></script>
+    <script src="js/services/services.semver.js?v=1588195944426"></script>
+    <script src="js/services/services.service-control.js?v=1588195944426"></script>
+    <script src="js/services/services.stream.js?v=1588195944426"></script>
+    <script src="js/services/services.uri.js?v=1588195944426"></script>
+    <script src="js/services/services.export.js?v=1588195944426"></script>
+    <script src="js/services/services.historyperiods.js?v=1588195944426"></script>
+    <script src="js/services/factory.listener.js?v=1588195944426"></script>
+    <script src="js/services/factory.notifier.js?v=1588195944426"></script>
+    <script src="js/services/factory.shareddata.js?v=1588195944426"></script>
+    <script src="js/services/services.endpoints.js?v=1588195944426"></script>
+    <script src="js/services/constant.rxjs.js?v=1588195944426"></script>
+    <script src="js/services/service.formatter.js?v=1588195944426"></script> -->
+
+    <!-- Directives -->
+    <!-- <script src="js/directives/ngClip.js?v=1621602441174"></script>
+    <script src="js/directives/ngHighlight.js?v=1621602441174"></script>
+    <script src="js/directives/moment.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.hud.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.busy.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.nodata.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.exclamation.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.confirmclick.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.tabset.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.tab.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.eatclick.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.failedMessageTabs.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.largenumber.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.multi-checkboxlist.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.pageTitleFromRoute.js?v=1621602441174"></script>
+    <script src="js/directives/ui.particular.js?v=1621602441174"></script> -->
+
+    <!-- Mystery -->
+    <!-- <script src="js/views/event_log_items/eventLogItems.js?v=1621602441174"></script> -->
+
+    <!-- Archive -->
+    <!-- <script src="js/views/about/route.js?v=1621602441174"></script>
+    <script src="js/views/about/controller.js?v=1621602441174"></script> -->
+
+
+    <!-- Dashboard -->
+    <!-- <script src="js/views/dashboard/dashboard.module.js?v=1621602441174"></script>
+    <script src="js/views/dashboard/dashboard.route.js?v=1621602441174"></script>
+    <script src="js/views/dashboard/dashboard.controller.js?v=1621602441174"></script> -->
+
+    <!-- Failed Groups -->
+    <!-- <script src="js/views/failed_groups/route.js?v=1621602441174"></script>
+    <script src="js/views/failed_groups/controller.js?v=1621602441174"></script>
+    <script src="js/views/failed_groups/service.js?v=1621602441174"></script> -->
+
+    <!-- Failed Messages -->
+    <!-- <script src="js/views/failed_messages/route.js?v=1621602441174"></script>
+    <script src="js/views/failed_messages/controller.js?v=1621602441174"></script>
+    <script src="js/views/failed_messages/service.js?v=1621602441174"></script> -->
+
+    <!-- Failed Message -->
+    <!-- <script src="js/views/message/route.js?v=1621602441174"></script>
+    <script src="js/views/message/controller.js?v=1621602441174"></script> -->
+    <!-- Failed Message Editor -->
+    <!-- <script src="js/views/message/editor/messageEditorModal.service.js?v=1621602441174"></script>
+    <script src="js/views/message/editor/messageEditorModal.controller.js?v=1621602441174"></script> -->
+
+    <!-- Archive -->
+    <!-- <script src="js/views/archive/route.js?v=1621602441174"></script>
+    <script src="js/views/archive/controller.js?v=1621602441174"></script>
+    <script src="js/views/archive/service.js?v=1621602441174"></script> -->
+
+    <!-- Archive Groups -->
+    <!-- <script src="js/views/archivedgroups/archivedgroups.route.js?v=1621602441174"></script>
+    <script src="js/views/archivedgroups/archivedgroups.controller.js?v=1621602441174"></script>
+    <script src="js/views/archivedgroups/archivedgroups.service.js?v=1621602441174"></script> -->
+
+    <!-- Pending Retries -->
+    <!-- <script src="js/views/pending_retries/route.js?v=1621602441174"></script>
+    <script src="js/views/pending_retries/controller.js?v=1621602441174"></script>
+    <script src="js/views/pending_retries/service.js?v=1621602441174"></script> -->
+
+    <!-- Custom Checks -->
+    <!-- <script src="js/views/custom_checks/customChecks.module.js?v=1621602441174"></script>
+    <script src="js/views/custom_checks/customChecks.route.js?v=1621602441174"></script>
+    <script src="js/views/custom_checks/customChecks.controller.js?v=1621602441174"></script> -->
+
+    <!-- Endpoints -->
+    <!-- <script src="js/views/endpoints/endpoints.module.js?v=1621602441174"></script>
+    <script src="js/views/endpoints/endpoints.route.js?v=1621602441174"></script>
+    <script src="js/views/endpoints/endpoints.controller.js?v=1621602441174"></script> -->
+
+    <!-- Comments -->
+    <!-- <script src="js/views/comments/commentmodal.service.js?v=1621602441174"></script>
+    <script src="js/views/comments/comment.controller.js?v=1621602441174"></script> -->
+
+    <!--Polyfills-->
+    <!-- <script src="js/polyfill/array.prototype.find.js?v=1621602441174"></script>
+    <script src="js/polyfill/array.prototype.includes.js?v=1621602441174"></script>
+    <script src="js/polyfill/string.prototype.endsWith.js?v=1621602441174"></script> -->
+</body>
 </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testApp">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pulse</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div ng-view=""></div>
+    <script type="text/ng-template" id="/partials/Cart.html">
+      <div class="container">
+
+          <form ng-show="!signedOrder" class="" name="billingForm">
+              <fieldset>
+                  <legend>Billing</legend>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="storeName">Store name</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="storeName" placeholder="" ng-model="storeName">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="transactionType">Transaction Type</label>
+                      <div class="col-sm-9">
+                          <select class="form-control" ng-model="order.TransactionType">
+                              <option value=""></option>
+                              <option value="Authorization">Authorization</option>
+                              <option value="Sale">Sale</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="referenceNumber">Reference Number</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="referenceNumber" placeholder="ex. order number or sessionId" ng-model="order.ReferenceNumber">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="Forename">Name</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="Forename" placeholder="Name" ng-model="order.BillToForename">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="Surname">Surname</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="Surname" placeholder="Surname" ng-model="order.BillToSurname">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="Email">e-Mail Address</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="Email" placeholder="e-Mail Address" ng-model="order.BillToEmail">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="Phone">Phone</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="Phone" placeholder="Phone" ng-model="order.BillToPhone">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="AddresLine1">Addres line 1</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="AddresLine1" placeholder="Addres line 1" ng-model="order.BillToAddressLine1">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="AddresLine1">Addres line 2</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="AddresLine1" placeholder="Addres line 2" ng-model="order.BillToAddressLine2">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="City">City</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="City" placeholder="City" ng-model="order.BillToAddressCity">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="State">State</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="State" placeholder="State" ng-model="order.BillToAddressState">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="Country">Country</label>
+                      <div class="col-sm-9">
+                          <select class="form-control" id="Country" ng-model="order.BillToAddressCountry">
+                              <option value=""></option>
+                              <option value="US">US</option>
+                              <option value="CA">CA</option>
+                              <option value="CR">CR</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="zip">Zip</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="zip" placeholder="Zip" ng-model="order.BillToAddressPostalCode" ng-required="order.BillToAddressCountry=='US' || order.BillToAddressCountry=='CA'">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="amount">Amount</label>
+                      <div class="col-sm-9">
+                          <input type="number" step="any" class="form-control" id="amount" placeholder="Amount" ng-model="order.OrderTotal" required>
+                      </div>
+                  </div>
+              </fieldset>
+
+              <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-9">
+                      <button type="button" class="btn btn-default" ng-click="clear()">Clear</button>
+                      <button type="button" class="btn btn-default" ng-click="setDefaults()">Fill with defaults</button>
+                      <button type="submit" class="btn btn-default" ng-disabled="!billingForm.$valid" ng-click="pay()">Pay</button>
+                  </div>
+              </div>
+          </form>
+
+          <form ng-show="signedOrder" id="paymentConfirmation" name="paymentConfirmation" action="https://testsecureacceptance.cybersource.com/silent/token/create" method="post">
+
+              <dynamic-content ng-model="signedOrder"></dynamic-content>
+
+              <fieldset>
+                  <legend>Payment confirmation</legend>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="cartType">Card Type</label>
+                      <div class="col-sm-9">
+                          <select class="form-control" id="card_type" name="card_type" ng-model="card.Type" required>
+                              <option value=""></option>
+                              <option value="001">VISA</option>
+                              <option value="002">MasterCard</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card_number">Card number</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="card_number" placeholder="Card number" name="card_number" ng-model="card.Number" required>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card_expiry_date">Expiration date</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="card_expiry_date" name="card_expiry_date" placeholder="Expiration date" ng-model="card.ExpDate" required>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="card_cvn">CVN</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="card_cvn" name="card_cvn" placeholder="card cvn" ng-model="card.Cvn" required>
+                      </div>
+                  </div>
+
+              </fieldset>
+              <button type="button" class="btn btn-default" ng-click="signedOrder=''">Back</button>
+              <button type="button" class="btn btn-default" ng-click="setCardDefaults()">Fill with defaults</button>
+              <input type="submit" class="btn btn-default" id="submit" value="Confirm" ng-disabled="!paymentConfirmation.$valid" />
+          </form>
+      </div>
+  </script>
+
+  </body>
+</html>

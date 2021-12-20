@@ -267,7 +267,7 @@ pre {
 }
 
 .loading {
-    background-image: url('../img/loader_spinner.gif');
+    background-image: url('/assets/img/loader_spinner.gif');
     background-position: center;
     background-repeat: no-repeat;
     height: 65px;
@@ -276,7 +276,7 @@ pre {
 .pa-endpoint {
     position: relative;
     top: 3px;
-    background-image: url('../img/endpoint.svg');
+    background-image: url('/assets/img/endpoint.svg');
     background-position: center;
     background-repeat: no-repeat;
     height: 15px;
@@ -284,7 +284,7 @@ pre {
 }
 
 .pa-redirect-source {
-    background-image: url('../img/redirect-source.svg');
+    background-image: url('/assets/img/redirect-source.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -301,7 +301,7 @@ pre {
 }
 
 .pa-redirect-destination {
-    background-image: url('../img/redirect-destination.svg');
+    background-image: url('/assets/img/redirect-destination.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -2203,31 +2203,31 @@ i.fa-exclamation-triangle {
 }
 
 .pa-endpoint-lost.endpoints-overview {
-    background-image: url('../../img/endpoint-lost.svg');
+    background-image: url('/assets/img/endpoint-lost.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .pa-monitoring-lost.endpoints-overview {
-    background-image: url('../../img/monitoring-lost.svg');
+    background-image: url('/assets/img/monitoring-lost.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .pa-endpoint-lost.endpoint-details {
-    background-image: url('../../../img/endpoint-lost.svg');
+    background-image: url('/assets/img/endpoint-lost.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .pa-monitoring-lost.endpoint-details {
-    background-image: url('../../../img/monitoring-lost.svg');
+    background-image: url('/assets/img/monitoring-lost.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .pa-warning {
-    background-image: url('../../../img/warning.svg');
+    background-image: url('/assets/img/warning.svg');
     background-position: center;
     background-repeat: no-repeat;
     width: 20px;
@@ -2387,7 +2387,7 @@ footer span.connection-failed.ng-scope {
 
 
 .pa-connection-establishing {
-    background-image: url('../img/loader_spinner.gif');
+    background-image: url('/assets/img/loader_spinner.gif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2608,14 +2608,14 @@ span.fa-exclamation-triangle.danger {
 }
 
 #toast-container > .toast-error {
-    background-image: url('../img/toast-danger.svg') !important;
+    background-image: url('/assets/img/toast-danger.svg') !important;
     background-position-y: 30px;
     background-size: 28px 28px;
 }
 
 #toast-container > .toast-warning {
     background-color: #F3BC52;
-    background-image: url('../img/toast-warning.svg') !important;
+    background-image: url('/assets/img/toast-warning.svg') !important;
     background-position-y: 30px;
     background-size: 28px 28px;
 }
@@ -2666,7 +2666,7 @@ span.fa-exclamation-triangle.danger {
     width: 100%;
     height: 90vh;
     margin-top: -100px;
-    background-image: url('../img/sp-loader.gif');
+    background-image: url('/assets/img/sp-loader.gif');
     background-size: 150px 150px;
     background-position: center center;
     background-repeat: no-repeat;
@@ -3204,15 +3204,15 @@ a.remove-endpoint:hover i {
 }
 
 .pa-check {
-    background-image: url('../img/check.svg');
+    background-image: url('/assets/img/check.svg');
 }
 
 .pa-uncheck {
-    background-image: url('../img/uncheck.svg');
+    background-image: url('/assets/img/uncheck.svg');
 }
 
 .pa-monitoring {
-    background-image: url('../../img/monitoring.svg');
+    background-image: url('/assets/img/monitoring.svg');
     background-position: center;
     background-repeat: no-repeat;
     width: 16px;
@@ -3251,11 +3251,11 @@ button[ng-click="vm.toggleSort()"] div {
 }
 
 .sort-up {
-    background-image: url('../../img/sort-up.svg');
+    background-image: url('/assets/img/sort-up.svg');
 }
 
 .sort-down {
-    background-image: url('../../img/sort-down.svg');
+    background-image: url('/assets/img/sort-down.svg');
 }
 
 .endpoint-group-title {
