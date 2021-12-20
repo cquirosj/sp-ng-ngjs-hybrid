@@ -16,7 +16,7 @@
             },
             "outputPath": "dist/apps/pulse",
             "index": "apps/pulse/src/index.html",
-            "main": "apps/pulse/src/app/js/app.ts",
+            "main": "apps/pulse/src/main.ts",
             "polyfills": "apps/pulse/src/polyfills.ts",
             "tsConfig": "apps/pulse/tsconfig.app.json",
             "assets": ["apps/pulse/src/favicon.ico", "apps/pulse/src/assets"],

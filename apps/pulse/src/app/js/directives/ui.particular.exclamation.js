@@ -1,6 +1,7 @@
 ﻿(function (window, angular) {
     'use strict';
 
+    const template = require('./ui.particular.exclamation.tpl.html')
     function directive() {
         return {
             scope: {
@@ -8,7 +9,7 @@
             },
             restrict: 'EA',
             replace: true,
-            templateUrl: 'js/directives/ui.particular.exclamation.tpl.html',
+            template: template.default,
             link: function (scope, element) { }
         };
     }

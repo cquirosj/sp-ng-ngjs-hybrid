@@ -67,12 +67,14 @@
     'connectionsManager',
     'notifyService'];
 
+    const template = require('./ui.particular.monitoringConnectivityStatus.tpl.html')
+
     function directive() {
         return {
             scope: {},
             restrict: 'E',
             replace: true,
-            templateUrl: 'modules/monitoring/js/directives/ui.particular.monitoringConnectivityStatus.tpl.html',
+            template: template.default,
             controller: controller,
             link: function (scope, element) { }
         };
