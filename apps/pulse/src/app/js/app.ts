@@ -6,7 +6,8 @@ import { initConnectionManager } from '../modules/configuration/connectionsManag
 import { initConfigurationModule } from '../modules/configuration/js/configuration.module';
 import { initAppRouteProvider } from './app.route';
 import 'ng-sanitize';
-
+import { initNotifyService } from './services/factory.notifier';
+import  * as appCtrl from './app.controller'; 
 initDefaultConfig();
 initConfigurationModule();
 initConnectionManager();
@@ -64,6 +65,8 @@ export default module('sc', [
     //angular bootstrap
     var serviceControlApp = module('sc');
 
+    appCtrl.register(serviceControlApp);
+
     var inj = injector(['ng']);
     var $http = inj.get('$http');
 
@@ -96,3 +99,5 @@ export default module('sc', [
     <script src="js/app.http.js?v=1621602441174"></script>
     <script src="js/app.bootstrap.js?v=1621602441174"></script>
     */
+
+    initNotifyService()

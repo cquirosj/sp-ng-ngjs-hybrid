@@ -2,7 +2,7 @@
 import { module } from 'angular';
 import { getDefaultConfig } from '../../js/app.constants';
 
-class ConnectionsManager {
+export class ConnectionsManager {
   private serviceControlUrl: string = '';
   private monitoringUrl: string = '';
 
