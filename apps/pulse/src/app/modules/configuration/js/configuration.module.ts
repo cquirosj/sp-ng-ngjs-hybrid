@@ -4,7 +4,7 @@ import * as angular from 'angular';
 import './configuration.route';
 import './configuration.service';
 
-//import './directives/ui.particular.configurationTabs';
+import './directives/ui.particular.configurationTabs';
 // import './directives/ui.particular.redirectLink';
 
 // import './license/license.module';
