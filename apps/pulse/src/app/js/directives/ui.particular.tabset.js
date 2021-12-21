@@ -34,13 +34,15 @@
 
     function Directive($window) {
 
+        const template = require('./ui.particular.tabset.tpl.html');
+
         var directive = {
             restrict: 'E',
             transclude: true,
             scope: {
 
             },
-            templateUrl: 'js/directives/ui.particular.tabset.tpl.html',
+            template: template.default,
             bindToController: true,
             controllerAs: 'tabset',
             controller: Controller,

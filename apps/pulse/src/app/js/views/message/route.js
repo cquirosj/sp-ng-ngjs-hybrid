@@ -3,6 +3,8 @@
 
     var cachedEditAndRetryConfig = undefined;
 
+    const template = './messages-view.html';
+
     function routeProvider($routeProvider) {
         $routeProvider.when('/message/:messageId', {
             redirectTo: '/failed-messages/message/:messageId'
@@ -10,7 +12,7 @@
             data: {
                 pageTitle: 'Message'
             },
-            templateUrl: 'js/views/message/messages-view.html',
+            template: template.default,
             controller: 'messagesController',
             controllerAs: 'vm',
             resolve: {

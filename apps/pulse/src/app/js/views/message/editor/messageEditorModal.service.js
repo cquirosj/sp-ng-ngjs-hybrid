@@ -1,11 +1,13 @@
 (function (window, angular) {
     'use strict';
 
+    const template = require('./messageEditorModal.html');
+
     function service($uibModal) {
         return {
             displayEditMessageModal: function (failedMessageId, editAndRetryConfig) {
                 return $uibModal.open({
-                    templateUrl: 'js/views/message/editor/messageEditorModal.html',
+                    template: template.default,
                     controller: 'messageEditorModalController',
                     backdrop: 'static',
                     windowTopClass: 'modal-msg-editor',

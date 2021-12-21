@@ -36,6 +36,8 @@
 
     controller.$inject = ["$scope"];
 
+    const template = require("./ui.particular.sortableColumn.tpl.html");
+
     function directive() {
         return {
             scope: {
@@ -47,7 +49,7 @@
             controllerAs: "vm",
             bindToController: true,
             transclude: true,
-            templateUrl: "modules/monitoring/js/directives/ui.particular.sortableColumn.tpl.html"
+            template: template.default
         }
     }
 

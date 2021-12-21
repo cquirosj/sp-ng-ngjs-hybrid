@@ -1,6 +1,6 @@
 ﻿(function (window, angular, $) {
     'use strict';
-
+    const template = require('./ui.particular.messageTypesChangeIndicator.tpl.html');
     angular.module('ui.particular.messageTypesChangeIndicator', [])
         .directive('messageTypesChangeIndicator',
             function() {
@@ -10,7 +10,7 @@
                         refresh: '=',
                         messageTypesAvailable: '='
                     },
-                    templateUrl: 'modules/monitoring/js/directives/ui.particular.messageTypesChangeIndicator.tpl.html',
+                    template: template.default,
                     link: function link(scope, element, attrs) {
                         $(window).on('load scroll', function () {
                             if ($(this).scrollTop() > 510) {

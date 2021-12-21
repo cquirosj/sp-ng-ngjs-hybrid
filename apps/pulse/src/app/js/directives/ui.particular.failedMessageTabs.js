@@ -74,13 +74,13 @@
     }
 
     controller.$inject = ['$scope', '$rootScope', '$interval', '$location', 'sharedDataService', 'notifyService', 'serviceControlService', 'showPendingRetry'];
-
+    const template = require('./ui.particular.failedMessageTabs.tpl.html');
     function directive() {
         return {
             scope: {},
             restrict: 'E',
             replace: true,
-            templateUrl: 'js/directives/ui.particular.failedMessageTabs.tpl.html',
+            template: template.default,
             controller: controller,
             link: function(scope, element) {}
         };

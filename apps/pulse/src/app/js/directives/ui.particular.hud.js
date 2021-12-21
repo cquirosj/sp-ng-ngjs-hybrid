@@ -1,6 +1,6 @@
 ﻿(function(window, angular) {
     'use strict';
-
+    const template = require('./ui.particular.hud.tpl.html');
     function directive() {
 
         return {
@@ -12,7 +12,7 @@
             },
             restrict: 'E',
             replace: true,
-            templateUrl: 'js/directives/ui.particular.hud.tpl.html',
+            template: template.default,
         };
     }
 

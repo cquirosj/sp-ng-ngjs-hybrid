@@ -12,7 +12,7 @@
             },
             restrict: 'E',
             replace: true,
-            template: template,
+            template: template.default,
             link: function (scope, element) {
                 scope.busyReindexingDatabase = $rootScope.busyReindexingDatabase;
 

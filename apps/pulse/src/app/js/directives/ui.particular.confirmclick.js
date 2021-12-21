@@ -22,7 +22,7 @@
     }
 
     function directive($log, $uibModal) {
-
+        const template = require('./ui.particular.confirmclick.tpl.html');
         return {
             priority: -1,
             restrict: 'A',
@@ -38,7 +38,7 @@
                     $uibModal.open({
                         animation: true,
            
-                        templateUrl: 'js/directives/ui.particular.confirmclick.tpl.html',
+                        template: tempalte.default,
                         controller: modalController,
                         resolve: {
                             confirmMessage: function () {

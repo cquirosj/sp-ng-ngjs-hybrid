@@ -1,12 +1,14 @@
 ﻿(function (window, angular) {
     'use strict';
+    
+    const template = require('./about-view.html');
 
     function routeProvider($routeProvider) {
         $routeProvider.when('/about', {
             data: {
                 pageTitle: 'About'
             },
-            templateUrl: 'js/views/about/about-view.html',
+            template: template.default,
             controller: 'aboutController',
             controllerAs: 'vm'
         });

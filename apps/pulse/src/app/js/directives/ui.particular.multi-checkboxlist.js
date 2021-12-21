@@ -83,11 +83,13 @@
     
     controller.$inject = ['$scope'];
 
+    const template = require('./ui.particular.multi-checkboxlist.tpl.html');
+
     function directive() {
         return {
             scope: { messages: '=messages', selectedIds: '=selectedIds', message: '=message', multiselection: '=multiselection' },
             restrict: 'E',
-            templateUrl: 'js/directives/ui.particular.multi-checkboxlist.tpl.html',
+            template: template.default,
             controller: controller
             
         };
