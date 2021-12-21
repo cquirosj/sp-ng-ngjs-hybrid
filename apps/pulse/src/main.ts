@@ -13,6 +13,7 @@ import './app/js/app.controller' //     <script src="js/app.controller.js?v=1621
 import './app/js/app.logging' //     <script src="js/app.logging.js?v=1621602441174"></script>
 import './app/js/app.http' //     <script src="js/app.http.js?v=1621602441174"></script>
 import './app/js/app.bootstrap' //     <script src="js/app.bootstrap.js?v=1621602441174"></script>
+import './app/js/components/sc_not_available.component'
 
 //     <!-- Services -->
 import './app/js/services/services.module' //     <script src="js/services/services.module.js?v=1588195944426"></script>
