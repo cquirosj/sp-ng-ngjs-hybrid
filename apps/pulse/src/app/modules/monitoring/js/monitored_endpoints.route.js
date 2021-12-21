@@ -8,7 +8,7 @@
             data: {
                 pageTitle: 'Monitored Endpoints'
             },
-            template: template,
+            template: template.default,
             controller: 'monitoredEndpointsCtrl',
             controllerAs: 'vm',
             reloadOnSearch: false

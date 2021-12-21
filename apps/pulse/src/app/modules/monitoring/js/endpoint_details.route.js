@@ -8,7 +8,7 @@
             data: {
                 pageTitle: 'Endpoint Details'
             },
-            template: template,
+            template: template.default,
             controller: 'endpointDetailsCtrl',
             controllerAs: 'vm',
             reloadOnSearch: false

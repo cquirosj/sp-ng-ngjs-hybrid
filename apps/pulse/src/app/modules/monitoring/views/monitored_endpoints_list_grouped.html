@@ -1,7 +1,7 @@
 ﻿<section ng-if="grouping.selectedGrouping > 0">
     <div class="sp-loader" ng-if="loading"></div>
-    <div ng-include="'modules/monitoring/views/monitoring_not_available.html'" ng-show="!endpoints.length && !loading && hasData"></div>
-    <div ng-include="'modules/monitoring/views/monitoring_no_data.html'" ng-show="!endpoints.length && !loading && !hasData"></div>
+    <monitoring-not-available ng-show="!endpoints.length && !loading && hasData"></monitoring-not-available>
+    <monitorint-no-data ng-show="!endpoints.length && !loading && !hasData"></monitorint-no-data>
 
     <div ng-show="endpoints.length" class="row box box-no-click table-head-row">
         <div class="col-xs-2 col-xl-7">

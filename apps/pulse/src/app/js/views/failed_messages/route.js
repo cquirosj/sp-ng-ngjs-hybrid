@@ -1,6 +1,8 @@
 ﻿(function (window, angular) {
     'use strict';
 
+    const template = require('./failed-messages-view.html')
+
     function routeProvider($routeProvider) {
         $routeProvider.when('/failedMessages', {
             redirectTo: '/failed-messages/all'
@@ -12,14 +14,14 @@
                 data: {
                     pageTitle: 'Failed Messages'
                 },
-                templateUrl: 'js/views/failed_messages/failed-messages-view.html',
+                template: template.default,
                 controller: 'failedMessagesController',
                 controllerAs: 'vm'
             }).when('/failed-messages/all', {
                 data: {
                     pageTitle: 'Failed Messages'
                 },
-                templateUrl: 'js/views/failed_messages/failed-messages-view.html',
+                template: template.default,
                 controller: 'failedMessagesController',
                 controllerAs: 'vm'
             });

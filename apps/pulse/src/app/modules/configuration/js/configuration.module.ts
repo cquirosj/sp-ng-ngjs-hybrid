@@ -1,35 +1,30 @@
-import {module} from 'angular';
+import * as angular from 'angular';
+angular.module('configuration', []);
 
-export function initConfigurationModule(){
-    module('configuration', []);
+import './configuration.route';
+import './configuration.service';
 
-    // require('./configuration.route');
-    // require('./configuration.service');
+import './directives/ui.particular.configurationTabs';
+import './directives/ui.particular.redirectLink';
 
-    // require('./directives/ui.particular.configurationTabs');
-    // require('./directives/ui.particular.redirectLink');
+import './license/license.module';
 
-    // require('./license/license.module');
+import './redirect/redirect.module';
 
-    // require('./redirect/redirect.module');
+import './connections/connections.module';
 
-    // require('./connections/connections.module');
+import './notifications/notifications.module';
 
-    // require('./notifications/notifications.module');
+import './platformconnection/platformconnection.module';
 
-    // require('./platformconnection/platformconnection.module');
-
-    // module('configuration', [
-    // 'ui.bootstrap',
-    // 'configuration.route',
-    // 'configuration.service',
-    // 'configuration.tabs',
-    // 'configuration.redirect',
-    // 'configuration.license',
-    // 'configuration.connections',
-    // 'configuration.notifications',
-    // 'configuration.platformconnection',
-    // ]);
-}
-
-
+angular.module('configuration', [
+  'ui.bootstrap',
+  'configuration.route',
+  'configuration.service',
+  'configuration.tabs',
+  'configuration.redirect',
+  'configuration.license',
+  'configuration.connections',
+  'configuration.notifications',
+  'configuration.platformconnection',
+]);

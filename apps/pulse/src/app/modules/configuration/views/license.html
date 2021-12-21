@@ -12,7 +12,7 @@
         <configuration-tabs></configuration-tabs>
 
         <div class="sp-loader" ng-if="isSCConnecting"></div>
-        <div ng-include="'js/views/sc_not_available.html'" ng-show="!isSCConnected && !isSCConnecting && !scConnectedAtLeastOnce"></div>
+        <sc-not-available sc-url="serviceControlUrl" ng-show="!isSCConnected && !isSCConnecting && !scConnectedAtLeastOnce"></sc-not-available>
 
         <section ng-show="isSCConnected || scConnectedAtLeastOnce">
 

@@ -2,12 +2,13 @@
     
     'use strict';
 
+    const template = require('./dashboard.html');
     function routeProvider($routeProvider) {
         $routeProvider.when('/dashboard', {
             data: {
                 pageTitle: "Dashboard"
             },
-            templateUrl: 'js/views/dashboard/dashboard.html',
+            template: template.default,
             controller: 'DashboardCtrl',
             controllerAs: 'vm'
         });

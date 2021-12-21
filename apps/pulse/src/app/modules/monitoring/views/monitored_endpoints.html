@@ -32,7 +32,8 @@
     </div>
 </div>
 
+
 <div class="container" ng-if="!isPlatformTrialExpired && !isPlatformExpired && !isInvalidDueToUpgradeProtectionExpired">
-    <ng-include src="'modules/monitoring/views/monitored_endpoints_list.html'"></ng-include>
-    <ng-include src="'modules/monitoring/views/monitored_endpoints_list_grouped.html'"></ng-include>
+    <monitored-endpoints-list></monitored-endpoints-list>
+    <monitored-endpoints-list-grouped></monitored-endpoints-list-grouped>
 </div>

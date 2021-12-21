@@ -36,7 +36,7 @@
             const template = require('../../views/notificationsemailmodal.html');
 
             $uibModal.open({
-                template: template,
+                template: template.default,
                 controller: 'editEmailController',
                 resolve: {
                     data: () => {

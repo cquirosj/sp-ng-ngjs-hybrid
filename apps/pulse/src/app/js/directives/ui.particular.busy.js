@@ -1,6 +1,6 @@
 ﻿(function (window, angular) {
     'use strict';
-
+    const template  = './ui.particular.busy.tpl.html';
     function directive() {
         return {
             scope: {
@@ -8,7 +8,7 @@
             },
             restrict: 'E',
             replace: true,
-            templateUrl: 'js/directives/ui.particular.busy.tpl.html',
+            template: template.default,
             link: function (scope, element) { }
         };
     }

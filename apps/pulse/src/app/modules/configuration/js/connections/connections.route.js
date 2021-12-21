@@ -10,7 +10,7 @@
             data: {
                 pageTitle: 'Connections - Configuration'
             },
-            template: template,
+            template: template.default,
             controller: 'connectionsController',
             controllerAs: 'vm'
         });

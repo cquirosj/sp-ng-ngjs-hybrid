@@ -1,11 +1,13 @@
 ﻿(function (window, angular) {
     'use strict';
 
+    const template = require('./commentmodal.html');
+
     function service($uibModal) {
         return {
             displayCommentModal: function (title, saveButtonText, success, failure, comment, group) {
                 $uibModal.open({
-                    templateUrl: 'js/views/comments/commentmodal.html',
+                    template: template.default,
                     controller: 'commentController',
                     resolve: {
                         data: function (){

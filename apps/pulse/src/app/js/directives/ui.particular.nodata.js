@@ -1,6 +1,8 @@
 ﻿(function (window, angular) {
     'use strict';
 
+    const template = require('./ui.particular.nodata.tpl.html');
+
     function directive() {
         return {
             scope: {
@@ -8,7 +10,7 @@
             },
             restrict: 'E',
             replace: true,
-            templateUrl: 'js/directives/ui.particular.nodata.tpl.html',
+            template: template.default,
             link: function (scope, element) { }
         };
     }

@@ -7,7 +7,7 @@
                 const template = require('../../views/redirectmodal.html');
 
                 $uibModal.open({
-                    template: template,
+                    template: template.default,
                     controller: 'editRedirectController',
                     resolve: {
                         data: () => {

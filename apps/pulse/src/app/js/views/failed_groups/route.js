@@ -1,6 +1,8 @@
 ﻿(function (window, angular) {
     'use strict';
 
+    const template = require('./failed-groups-view.html');
+
     function routeProvider($routeProvider) {
         $routeProvider.when('/failedGroups', {
             redirectTo: '/failed-messages/groups'
@@ -8,7 +10,7 @@
             data: {
                 pageTitle: 'Failed Groups'
             },
-            templateUrl: 'js/views/failed_groups/failed-groups-view.html',
+            template: template.default,
             controller: 'failedMessageGroupsController',
             controllerAs: 'vm'
         });

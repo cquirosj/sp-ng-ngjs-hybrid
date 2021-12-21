@@ -15,7 +15,7 @@
             scope: { redirect: '=redirect', queue_address: '@queueAddress' },
             restrict: 'E',
             replace: true,
-            template: template,
+            template: template.default,
             controller: controller,
             link: function (scope, element) { }
         };

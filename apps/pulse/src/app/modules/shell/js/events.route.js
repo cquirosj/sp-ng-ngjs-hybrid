@@ -8,7 +8,7 @@
             data: {
                 pageTitle: 'Events'
             },
-            template: template,
+            template: template.default,
             controller: 'EventsCtrl',
             controllerAs: 'vm'
         });

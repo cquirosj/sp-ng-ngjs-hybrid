@@ -1,6 +1,8 @@
 ﻿(function (window, angular) {
     'use strict';
 
+    const template = require('./pending-retries-view.html');
+
     function routeProvider($routeProvider) {
         $routeProvider.when('/pendingRetries', {
             redirectTo: '/failed-messages/pending-retries'
@@ -8,7 +10,7 @@
             data: {
                 pageTitle: 'Pending Retries'
             },
-            templateUrl: 'js/views/pending_retries/pending-retries-view.html',
+            template: template.default,
             controller: 'pendingRetriesController',
             controllerAs: 'vm'
         });

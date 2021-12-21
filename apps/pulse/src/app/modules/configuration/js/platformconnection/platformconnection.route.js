@@ -8,7 +8,7 @@
             data: {
                 pageTitle: 'Endpoint connection'
             },
-            template: template,
+            template: template.default,
             controller: 'platformConnectionController',
             controllerAs: 'vm'
         });

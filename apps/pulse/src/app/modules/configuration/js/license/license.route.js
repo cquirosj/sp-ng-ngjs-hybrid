@@ -9,7 +9,7 @@
                 pageTitle: 'License - Configuration',
                 redirectWhenNotConnected: '/configuration/connections'
             },
-            template: template,
+            template: template.default,
             controller: 'LicenseController',
             controllerAs: 'vm'
         });

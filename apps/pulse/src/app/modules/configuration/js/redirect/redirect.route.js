@@ -11,7 +11,7 @@
                 pageTitle: 'Retry Redirects - Configuration',
                 redirectWhenNotConnected: '/configuration/connections'
             },
-            template: template,
+            template: template.default,
             controller: 'redirectController',
             controllerAs: 'vm'
         });

@@ -1,6 +1,8 @@
 ﻿(function (window, angular) {
     'use strict';
 
+    const template = require('./archivedgroups.html');
+
     function routeProvider($routeProvider) {
         $routeProvider.when('/archivedgroups', {
             redirectTo: '/archivedgroups/groups'
@@ -8,7 +10,7 @@
             data: {
                 pageTitle: 'Deleted message groups'
             },
-            templateUrl: 'js/views/archivedgroups/archivedgroups.html',
+            template: template.default,
             controller: 'archivedMessageGroupsController',
             controllerAs: 'vm'
         });

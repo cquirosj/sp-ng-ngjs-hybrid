@@ -1,27 +1,27 @@
 (function (window, angular, $) {
     'use strict';
 
-    // var serviceControlApp = angular.module('sc');
+    var serviceControlApp = angular.module('sc');
 
-    // var injector = angular.injector(['ng']);
-    // var $http = injector.get('$http');
+    var injector = angular.injector(['ng']);
+    var $http = injector.get('$http');
 
-    // var scUrl = window.connectionsManager.getServiceControlUrl();
-    // console.debug('Retrieving license from ServiceControl at: ', scUrl);
+    var scUrl = window.connectionsManager.getServiceControlUrl();
+    console.debug('Retrieving license from ServiceControl at: ', scUrl);
 
-    // $http.get(scUrl + '/license').then(function (response) {
+    $http.get(scUrl + '/license').then(function (response) {
 
-    //     serviceControlApp.constant('license', response.data);
+        serviceControlApp.constant('license', response.data);
 
-    // }, function () {
+    }, function () {
 
-    //     serviceControlApp.constant('license', { 'license_status': 'Unavailable' });
+        serviceControlApp.constant('license', { 'license_status': 'Unavailable' });
 
-    // }).then(function () {
+    }).then(function () {
 
-    //     angular.element(document).ready(function () {
-    //         angular.bootstrap(document, ['sc']);
-    //     });
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['sc']);
+        });
 
-    // });
+    });
 }(window, window.angular, window.jQuery));
