@@ -65,8 +65,7 @@
         .controller("EventLogItemsCtrl", controller);
 
     angular.module('eventLogItems').component('eventLogItems', {
-        template: require('./eventLogItems.tpl.html').default,
-        controller:'EventLogItemsCtrl'
+        template: require('./eventLogItems.tpl.html').default
         });
 
 }(window, window.angular));

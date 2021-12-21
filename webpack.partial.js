@@ -1,5 +1,6 @@
+const webpack = require("webpack");
 module.exports = {
-  module: {
+  module: {    
     rules: [
       {
         test: /\.html$/,
@@ -12,33 +13,39 @@ module.exports = {
           },
         ],
       },
-      {
-        test: require.resolve('jquery'),
-        loader: 'expose-loader',
-        options: {
-          exposes: {
-            globalName: 'jQuery',
-          },
-        },
-      },
-      {
-        test: require.resolve('jquery'),
-        loader: 'expose-loader',
-        options: {
-          exposes: {
-            globalName: '$',
-          },
-        },
-      },
-      {
-        test: require.resolve('Rx'),
-        loader: 'expose-loader',
-        options: {
-          exposes: {
-            globalName: 'Rx',
-          },
-        },
-      },
+      // {
+      //   test: require.resolve('jquery'),
+      //   loader: 'expose-loader',
+      //   options: {
+      //     exposes: {
+      //       globalName: 'jQuery',
+      //     },
+      //   },
+      // },
+      // {
+      //   test: require.resolve('jquery'),
+      //   loader: 'expose-loader',
+      //   options: {
+      //     exposes: {
+      //       globalName: '$',
+      //     },
+      //   },
+      // }
     ],
   },
+  // plugins: [
+  //   new webpack.ProvidePlugin({
+	// 		jQuery: "jquery",
+	// 	}),
+	// 	new webpack.ProvidePlugin({
+	// 		moment: "moment",
+	// 	})
+  //   ,
+	// 	new webpack.ProvidePlugin({
+	// 		bootstrap: "bootstrap",
+	// 	}),
+  //   new webpack.ProvidePlugin({
+  //     d3: 'd3'
+  //   }),
+  // ],
 };

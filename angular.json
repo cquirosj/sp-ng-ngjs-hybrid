@@ -19,7 +19,7 @@
             "main": "apps/pulse/src/main.ts",
             "polyfills": "apps/pulse/src/polyfills.ts",
             "tsConfig": "apps/pulse/tsconfig.app.json",
-            "assets": ["apps/pulse/src/favicon.ico", "apps/pulse/src/assets"],
+            "assets": ["apps/pulse/src/favicon.ico", "apps/pulse/src/assets","apps/pulse/src/app/modules"],
             "styles": ["apps/pulse/src/styles.css"],
             "scripts": []
           },

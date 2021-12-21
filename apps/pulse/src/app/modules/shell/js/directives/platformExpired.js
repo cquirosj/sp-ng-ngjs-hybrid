@@ -10,7 +10,7 @@
             },
             restrict: 'E',
             replace: true,
-            template: template,
+            template: template.default,
             link: function (scope, element) {
             }
         };
@@ -26,7 +26,7 @@
             },
             restrict: 'E',
             replace: true,
-            template: template,
+            template: template.default,
             link: function (scope, element) {
             }
         };
@@ -40,7 +40,7 @@
             },
             restrict: 'E',
             replace: true,
-            template: template,
+            template: template.default,
             link: function (scope, element) {
             }
         };

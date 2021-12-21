@@ -10,7 +10,7 @@
             data: {
                 pageTitle: 'Health check Notifications - Configuration'
             },
-            template: template,
+            template: template.default,
             controller: 'notificationsController',
             controllerAs: 'vm'
         });

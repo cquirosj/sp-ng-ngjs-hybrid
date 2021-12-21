@@ -1,5 +1,5 @@
 import * as angular from 'angular';
-//module('configuration', []);
+angular.module('configuration', []);
 
 import './configuration.route';
 import './configuration.service';
