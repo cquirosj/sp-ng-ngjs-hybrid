@@ -6,15 +6,15 @@
     require('./services/services.messageTypeParser');
     require('./services/services.connectivityNotifier');
     require('./endpoint_details.controller');
-    require('./endpoint_details.route.js');
-    require('./constant.diagrams.js');
+    require('./endpoint_details.route');
+    require('./constant.diagrams');
 
-    require('./directives/ui.particular.monitoringConnectivityStatus.js');
-    require('./directives/ui.particular.graph.js');
-    require('./directives/ui.particular.graphdecimal.js');
-    require('./directives/ui.particular.duration.js');
-    require('./directives/ui.particular.graphduration.js');
-    require('./directives/ui.particular.largeGraph.js');
-    require('./directives/ui.particular.metricsLargenumber.js');
-    require('./directives/ui.particular.messageTypesChangeIndicator.js');
+    require('./directives/ui.particular.monitoringConnectivityStatus');
+    require('./directives/ui.particular.graph');
+    require('./directives/ui.particular.graphdecimal');
+    require('./directives/ui.particular.duration');
+    require('./directives/ui.particular.graphduration');
+    require('./directives/ui.particular.largeGraph');
+    require('./directives/ui.particular.metricsLargenumber');
+    require('./directives/ui.particular.messageTypesChangeIndicator');
 }(window, window.angular));

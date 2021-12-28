@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('events.module', []);
-    require('./events.route.js');
+    require('./events.route');
     require('./events.controller');
-    require('./services/service.auditLog.js');
+    require('./services/service.auditLog');
 
 } (window, window.angular));
 
