@@ -1,6 +1,6 @@
 ﻿(function (window, angular) {
     'use strict';
-    const template  = './ui.particular.busy.tpl.html';
+    const template  = require('./ui.particular.busy.tpl.html');
     function directive() {
         return {
             scope: {

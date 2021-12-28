@@ -38,7 +38,7 @@
                     $uibModal.open({
                         animation: true,
            
-                        template: tempalte.default,
+                        template: template.default,
                         controller: modalController,
                         resolve: {
                             confirmMessage: function () {
