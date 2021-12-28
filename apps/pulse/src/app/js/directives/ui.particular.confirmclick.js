@@ -39,7 +39,7 @@
                         animation: true,
            
                         template: template.default,
-                        controller: modalController,
+                        controller: ['$scope', '$uibModalInstance', 'confirmMessage', 'confirmClick', 'confirmTitle', 'confirmOkOnly', 'confirmSecondParagraph',modalController],
                         resolve: {
                             confirmMessage: function () {
                                 return scope.confirmMessage;
