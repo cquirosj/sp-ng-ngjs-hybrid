@@ -6,15 +6,15 @@
   require('./services/services.connectivityNotifier');
   require('./services/services.endpointGrouping');
   require('./monitored_endpoints.controller');
-  require('./monitored_endpoints.route.js');
-  require('./constant.diagrams.js');
+  require('./monitored_endpoints.route');
+  require('./constant.diagrams');
 
-  require('./directives/ui.particular.monitoringConnectivityStatus.js');
-  require('./directives/ui.particular.graph.js');
-  require('./directives/ui.particular.graphdecimal.js');
-  require('./directives/ui.particular.graphduration.js');
-  require('./directives/ui.particular.metricsLargenumber.js');
-  require('./directives/ui.particular.sortableColumn.js');
+  require('./directives/ui.particular.monitoringConnectivityStatus');
+  require('./directives/ui.particular.graph');
+  require('./directives/ui.particular.graphdecimal');
+  require('./directives/ui.particular.graphduration');
+  require('./directives/ui.particular.metricsLargenumber');
+  require('./directives/ui.particular.sortableColumn');
 
   angular
     .module('monitored_endpoints')

@@ -56,9 +56,9 @@
     angular
         .module("ui.particular.sortableColumn", [])
         .directive("sortableColumn", directive)
-        .config(function ($logProvider) {
+        .config(['$logProvider',function ($logProvider) {
             $logProvider.debugEnabled(true);
-        });
+        }]);
 
 
 })(window.angular);
