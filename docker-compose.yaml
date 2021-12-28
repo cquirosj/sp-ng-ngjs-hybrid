@@ -1,8 +1,8 @@
 version: '3'
 services:
   website:
-    image: cquirosj/service-puse-ts:1
-    #build:
-    #  context: .
+    image: cquirosj/service-pulse-ts:1
+    build:
+      context: .
     ports:
       - "5009:90"
