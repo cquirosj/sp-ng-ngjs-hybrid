@@ -3,12 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import * as angular from 'angular';
 import { ConnectionsManager } from './modules/configuration/connectionsManager';
-//import { AppComponent } from './app.component';
-//import { NxWelcomeComponent } from './nx-welcome.component';
+import { SystemStatusComponent } from './js/views/dashboard/system-status.component';
 
 @NgModule({
-  declarations: [],
-  imports: [BrowserModule,UpgradeModule],
+  declarations: [SystemStatusComponent],
+  imports: [BrowserModule, UpgradeModule],
   providers: [],
   bootstrap: [],
 })
