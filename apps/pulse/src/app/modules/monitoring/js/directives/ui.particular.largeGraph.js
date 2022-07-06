@@ -1,6 +1,14 @@
 ﻿(function(window, angular, d3) {
     'use strict';
 
+    // var tooltip = d3.select("body")
+	// .append("div")
+    // .attr('class','avg-tooltip')
+	// .style("position", "absolute")
+	// .style("z-index", "10")
+	// //.style("visibility", "hidden")
+	// .text("a simple lable");
+
     function drawDataSeries(chart, data, color, fillColor, scaleX, scaleY) {
 
         var area = d3.area()
@@ -16,7 +24,7 @@
 
         var group = chart.append('g').attr('class', 'dataSeries');
 
-        group.append('path')
+        var p = group.append('path')
             .datum(data.points)
             .attr('d', area)
             .attr('fill', fillColor)
@@ -40,13 +48,24 @@
 
         var group = chart.append('g').attr('class', 'dataAverage');
 
-        group.append('path')
+        var avgLine = group.append('path')
             .datum(Array(data.points.length).fill(data.average))
             .attr('d', line)
             .attr('stroke', color)
             .attr('stroke-width', 1.5)
             .attr('opacity', 0.5)
             .attr('stroke-dasharray', '10,10');
+
+            chart
+            .on("mouseover", mouseOver(d3,chart,group))
+            //                     //.on("mousemove", function(){return tooltip.style("top", avgLine.node().getBoundingClientRect().y+"px").style("left",avgLine.node().getBoundingClientRect().x+"px");})
+            //.on("mousemove", )
+            //                     .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+            //                     .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+            //getBoundingClientRect
+            
+        
     }
 
     function padToWholeValue(value) {
@@ -81,7 +100,8 @@
                         height: '=plotHeight'
                     },
                     template: '<svg></svg>',
-                    link: function link(scope, element, attrs) {
+                    link: function link(scope, element, attrs) {                       
+
                         scope.$watch('firstDataSeries', function () {
 
                             var svg = element.find('svg')[0];
@@ -174,7 +194,7 @@
 
                             drawAverage(firstSeries, attrs.firstSeriesColor, attrs.firstSeriesFillColor );
 
-                            if (secondSeries) {
+                            if (secondSeries && secondSeries.average > 0) {
                                 drawAverage(secondSeries, attrs.secondSeriesColor, attrs.secondSeriesFillColor);
                             }
                         });
@@ -182,4 +202,24 @@
                 };
             });
 
+            function mouseOut(d3) {
+                return function (d, i) {
+                    d3.select(this).transition()
+                        .duration('50')
+                        .attr('opacity', '1');
+                };
+            }
+            
+            function mouseOver(d3, chart, avgLine) {
+                return function (d, i) {
+                    var chartRect = chart.node().getBoundingClientRect();
+                    var rect = avgLine.node().getBBox();
+                    
+                    // tooltip.style("top", chartRect.y+ rect.y+"px").style("left", chartRect.x +  rect.x+"px");
+                    // tooltip.html(`x=${rect.x}, y=${rect.y}` )
+                };
+            }
+
 }(window, window.angular, window.d3));
+
+
