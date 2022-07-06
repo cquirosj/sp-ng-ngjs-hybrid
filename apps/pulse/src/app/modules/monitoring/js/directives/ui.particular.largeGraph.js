@@ -1,6 +1,8 @@
 ﻿(function(window, angular, d3) {
     'use strict';
 
+    var firstAverageTooltip = $('.avg-tooltip');
+
     // var tooltip = d3.select("body")
 	// .append("div")
     // .attr('class','avg-tooltip')
@@ -55,17 +57,8 @@
             .attr('stroke-width', 1.5)
             .attr('opacity', 0.5)
             .attr('stroke-dasharray', '10,10');
-
-            chart
-            .on("mouseover", mouseOver(d3,chart,group))
-            //                     //.on("mousemove", function(){return tooltip.style("top", avgLine.node().getBoundingClientRect().y+"px").style("left",avgLine.node().getBoundingClientRect().x+"px");})
-            //.on("mousemove", )
-            //                     .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-            //                     .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-
-            //getBoundingClientRect
             
-        
+        return group;
     }
 
     function padToWholeValue(value) {
@@ -183,7 +176,7 @@
                             }
 
                             var drawAverage = function(data, lineColor, fillColor) {
-                                drawAverageLine(chart, data, lineColor, fillColor, scaleX, scaleY);
+                                return drawAverageLine(chart, data, lineColor, fillColor, scaleX, scaleY);
                             }
 
                             drawSeries(firstSeries, attrs.firstSeriesColor, attrs.firstSeriesFillColor);
@@ -192,7 +185,16 @@
                                 drawSeries(secondSeries, attrs.secondSeriesColor,attrs.secondSeriesFillColor);
                             }
 
-                            drawAverage(firstSeries, attrs.firstSeriesColor, attrs.firstSeriesFillColor );
+                            var firstAverageLine = drawAverage(firstSeries, attrs.firstSeriesColor, attrs.firstSeriesFillColor );
+
+                            chart
+                            .on("mouseover", mouseOver(d3,chart,firstAverageLine))
+                            //                     //.on("mousemove", function(){return tooltip.style("top", avgLine.node().getBoundingClientRect().y+"px").style("left",avgLine.node().getBoundingClientRect().x+"px");})
+                            // .on("mousemove", )
+                            //                     .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+                            //                     .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+                            // getBoundingClientRect
 
                             if (secondSeries && secondSeries.average > 0) {
                                 drawAverage(secondSeries, attrs.secondSeriesColor, attrs.secondSeriesFillColor);
@@ -210,13 +212,17 @@
                 };
             }
             
-            function mouseOver(d3, chart, avgLine) {
+            function mouseOver(d3, chart, firstAverageLine) {
                 return function (d, i) {
-                    var chartRect = chart.node().getBoundingClientRect();
-                    var rect = avgLine.node().getBBox();
+                    var rect = firstAverageLine.node().getBoundingClientRect();
                     
-                    // tooltip.style("top", chartRect.y+ rect.y+"px").style("left", chartRect.x +  rect.x+"px");
-                    // tooltip.html(`x=${rect.x}, y=${rect.y}` )
+                    var labelTipWidth = getComputedStyle(firstAverageTooltip[0],':before').width.replace('px','');
+                    var labelTipHeight = getComputedStyle(firstAverageTooltip[0],':before').height.replace('px','');
+                    var lalbeTipHypotenuce = Math.trunc(Math.hypot(labelTipWidth,labelTipHeight));
+                    firstAverageTooltip.css('left','inherit');
+                    firstAverageTooltip.css('top',rect.y - firstAverageTooltip.css('height').replace('px', '')/2);
+                    firstAverageTooltip.css('right',`calc(100% - ${rect.x}px + ${lalbeTipHypotenuce/2}px)`);
+                    
                 };
             }
 
